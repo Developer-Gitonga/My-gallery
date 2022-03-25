@@ -1,8 +1,19 @@
+from urllib import request
 from django.shortcuts import render
 from django.http import HttpResponse
+import datetime as dt
 
 # Create your views here.
 
 def welcome(request):
-    return HttpResponse('Welcome to my gallery and get to be in my world')
+    return render(request, 'welcome.html')
+
+
+
+# def pic_today(request):
+#     date = dt.date.today()
+
+
+
+
 
