@@ -1,0 +1,34 @@
+
+<!-- {{block.super}}
+<img src="..." class="rounded float-start" alt="...">
+<img src="..." class="rounded float-end" alt="...">
+{% endblock %} -->
+
+{%extends 'all-gallery/base.html'%}
+
+ {% block content %}
+
+ <div class="container">
+
+   <div class="row">
+
+    <img src="{{image.image_image.url}}" class="rounded float-start" alt="...">
+    <img src="{{image.image_image.url}}" class="rounded float-end" alt="...">
+     
+   </div>
+
+   <div class="row">
+     <h1 class="text-center">{{image.title}}</h1>
+   </div>
+
+   <div class="row">
+     <p>{{article.post}}</p>
+   </div>
+
+   <div class="row">
+     <p>Posted {{article.pub_date|timesince}} by {{image.editor.first_name}}</p>
+   </div>
+
+ </div>
+
+ {% endblock %}
