@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import re_path as url,include
 
+
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^gallery/',include('gallery.urls'))
+    url('^admin/', admin.site.urls),
+    url('',include('gallery.urls'))
 
 ]
