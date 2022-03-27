@@ -1,0 +1,72 @@
+{% extends 'all-gallery/base.html' %}
+
+{% load static %}
+
+{% block content %}
+ {{block.super}}
+
+ <div class="container">
+
+    <!-- Adding a search form  -->
+    <div class="col-sm-4 col-md-4 navbar-right">
+
+        <h6>{{ message }}</h6>
+
+        <form class="navbar-form" role="search" action="{% url 'search_image' %}">
+
+        <div class="input-group">
+            <input type="text" class="form-control" style="width: 100%;" placeholder="Search Image by Category" name="image_category">
+            <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+                Search
+            </div>
+        </div>
+
+        </form>
+    </div>
+    <!-- search form end -->
+
+    <div class="row">
+        {% for image in images %}
+            <div class="col-sm-3" style="margin: 10px 20px;">
+                <img data-bs-toggle="modal" data-bs-target="#image{{ forloop.counter }}" style="cursor:pointer;width: 200px; height: 200px;" src="{% static image.image %}" alt="Img">
+                <div style="font-weight: bold; font-size: 16px;">
+                    {{ image.description }}
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="image{{ forloop.counter }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Title: {{ image.description }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div style='
+                        background-image: url({% static image.image %});
+                        height: 350px;
+                        background-position: bottom;
+                        background-size: cover;
+                    '>
+
+                        </div>
+                        <br>
+                        <div>
+                            Image description: {{ image.description }} <br>
+                            Image Location: {{ image.location.location_name }} <br>
+                            Image Category: {{ image.category.name }}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" onclick="copy('{% static image.image %}')" class="btn btn-primary">Copy Image URL</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
