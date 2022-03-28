@@ -6,6 +6,14 @@
  {{block.super}}
 
  <div class="container">
+     <div class="container">
+         <div class="container text-center">Categories available</div>
+         <ul class=" d-flex flex-wrap flex-row justify-content-around list-unstyled" >
+         {% for category in categories%}
+            <li>{{ category}}</li>
+         {% endfor%}
+        </ul>
+     </div>
 
     <!-- Adding a search form  -->
     <div class="col-sm-4 col-md-4 navbar-right">
@@ -48,8 +56,7 @@
                         background-image: url({% static image.image %});
                         height: 350px;
                         background-position: bottom;
-                        background-size: cover;
-                    '>
+                        background-size: cover;'>
 
                         </div>
                         <br>
@@ -61,8 +68,10 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" onclick="copy('{% static image.image %}')" class="btn btn-primary">Copy Image URL</button>
+                    <button type="button" onclick="copyImage('{% static image.image %}')" class="btn btn-primary">Copy Image URL</button>
                     </div>
+
+                                        
                 </div>
                 </div>
             </div>
