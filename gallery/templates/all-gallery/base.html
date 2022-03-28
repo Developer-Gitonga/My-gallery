@@ -58,23 +58,6 @@ function copy(text) {
 
 </script> -->
 
-
-<script>
-function myFunction() {
-  /* Get the text field */
-  var copyImage = document.getElementById("myInput");
-  /* Select the text field */
-  copyImage.select();
-  copyImage.setSelectionRange(0, 99999); /* For mobile devices */
-  /* Copy the text inside the text field */
-  navigator.clipboard.writeText(copyImage.value);
-  /* Alert the copied text */
-  alert("Copied the image: " + copyImage.value);
-}
-</script>
-
-
-
     {% endblock %}
 </body>
 </html>
