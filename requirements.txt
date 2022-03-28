@@ -1,4 +1,5 @@
 asgiref==3.5.0
+backports.zoneinfo==0.2.1
 beautifulsoup4==4.10.0
 certifi==2021.10.8
 charset-normalizer==2.0.12
@@ -18,6 +19,7 @@ jsonfield==3.1.0
 lxml==4.8.0
 oauth2==1.9.0.post1
 Pillow==9.0.1
+pkg_resources==0.0.0
 psycopg2==2.9.3
 pyicloud-dwoh==0.4.1
 pyparsing==3.0.7
