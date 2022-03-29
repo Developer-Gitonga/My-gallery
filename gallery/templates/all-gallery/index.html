@@ -35,6 +35,7 @@
     </div>
     <!-- search form end -->
 
+    <div class="container">
     <div class="row">
         {% for image in images %}
             <div class="col-sm-3" style="margin: 10px 20px;">
@@ -70,11 +71,12 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <!-- <button type="button" onclick="copyImage()" class="btn btn-primary" id="myInput">Copy Image URL</button> -->
                     
-                    <input type="text" value=({% static image.image %}) id="myInput">
-                    <button onclick="myFunction('{% static image.image %}')">Copy Image URL</button>
+                    <input type="text" value=http://127.0.0.1:8000/static{{ image.image.url }} id="myInput">
+                    <button onclick="myFunction()">Copy Image URL</button>
                     </div>
                     <script>
                         function myFunction() {
+                            
                           /* Get the text field */
                           var copyText = document.getElementById("myInput");
                           /* Select the text field */
@@ -84,6 +86,7 @@
                           navigator.clipboard.writeText(copyText.value);
                           /* Alert the copied text */
                           alert("Copied the text: " + copyText.value);
+                          console.log(copyText.value)
                         }
                         </script>
                   
@@ -94,6 +97,7 @@
             </div>
         {% endfor %}
     </div>
+</div>
 </div>
 {% endblock %}
 
